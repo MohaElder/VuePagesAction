@@ -1,4 +1,4 @@
-name: 'Vue to Github Pages'
+name: 'Deploy Vue.js App to Github Pages'
 branding:
   icon: 'activity'  
   color: 'blue'
