@@ -6,7 +6,9 @@ This Action will Build your Vue Project and deploy it to Github Pages
 2. Add this to your `vue.config.js` (and rename "YourRepoName" to your repo name)
 ```javascript
 module.exports = {
-    publicPath: '/YourRepoName/'
+    publicPath: process.env.NODE_ENV === 'production'
+  ? '/YourRepoName/'
+  : '/',
 }
 ```
 3. Create a Github Actions Workflow file and add this to it (and replace "YourGithubName" and "YourRepoName" with the names)
@@ -20,7 +22,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - id: Build-Vue
-      uses: xRealNeon/VuePagesAction@1.0.1
+      uses: SerhiiKa/VuePagesAction@1.0.1
       with:
         username: 'YourGithubName'
         reponame: 'YourRepoName'
